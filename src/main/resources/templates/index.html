@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>리뷰 작성을 대신해보자!</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f7f7f7;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .response-area {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            min-height: 100px;
+            color: #666;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2 class="text-center">리뷰 생성기</h2>
+    <div class="response-area">
+        <p th:text="${responseText}">응답 텍스트 출력</p>
+    </div>
+
+    <form th:action="@{/}" method="post" th:object="${reviewInformationDTO}">
+        <div class="form-group">
+            <label for="gender">성별 :</label>
+            <select th:field="*{gender}" id="gender" class="form-control">
+                <option value="남자">남자</option>
+                <option value="여자">여자</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="age">연령대 :</label>
+            <select th:field="*{age}" id="age" class="form-control">
+                <option value="10대">10대</option>
+                <option value="20대">20대</option>
+                <option value="30대">30대</option>
+                <option value="40대">40대</option>
+                <option value="50대">50대</option>
+                <option value="60대 이상">60대 이상</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="quality">상품의 질 :</label>
+            <select th:field="*{quality}" id="quality" class="form-control">
+                <option value="5점">5점</option>
+                <option value="4점">4점</option>
+                <option value="3점">3점</option>
+                <option value="2점">2점</option>
+                <option value="1점">1점</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="costPerformance">가성비 :</label>
+            <select th:field="*{costPerformance}" id="costPerformance" class="form-control">
+                <option value="5점">5점</option>
+                <option value="4점">4점</option>
+                <option value="3점">3점</option>
+                <option value="2점">2점</option>
+                <option value="1점">1점</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="length">글 길이 :</label>
+            <select th:field="*{length}" id="length" class="form-control">
+                <option value="50자">50자</option>
+                <option value="100자">100자</option>
+                <option value="150자">150자</option>
+                <option value="200자">200자</option>
+                <option value="300자">300자</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="category">카테고리(*필수) :</label>
+            <input type="text" th:field="*{category}" id="category" class="form-control" placeholder="ex.화장품">
+        </div>
+
+        <div class="form-group">
+            <label for="specificCategory">세부 카테고리 :</label>
+            <input type="text" th:field="*{subCategory}" id="specificCategory" class="form-control" placeholder="ex.선크림">
+        </div>
+
+        <div class="form-group">
+            <label for="additionalText">리뷰 끝에 추가할 말 :</label>
+            <input type="text" th:field="*{additionalText}" id="additionalText" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-custom">생성!</button>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
