@@ -11,6 +11,7 @@
 
 <p align="center">
   <img width="400" alt="image" src="https://github.com/haebyun/reviewMaker/assets/95038621/3cbd1fef-69e4-486b-bd52-0544b50b016b">
+  <br>
   <img width="400" alt="image" src="https://github.com/haebyun/reviewMaker/assets/95038621/69651822-526c-49bb-8940-9bfd5b6c56d9">
 </p>
 
